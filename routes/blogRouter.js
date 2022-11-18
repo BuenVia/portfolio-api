@@ -7,7 +7,7 @@ const Blog = require('../models/blogSchema')
 
 router.route('/api/blog')
 .get(async (req, res) => {
-    const blog = await Blog.find()
+    const blog = await Blog.find().sort({ createdAt: -1 })
     res.send(blog)
 })
 

@@ -37,6 +37,9 @@ app.get('/api/blog/latest', blogRouter)
 // Projects
 app.get('/api/projects', projectRouter)
 app.post('/api/projects', projectRouter)
+app.get('/api/projects/:id', projectRouter)
+app.put('/api/projects/:id', projectRouter)
+app.delete('/api/projects/:id', projectRouter)
 
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`);

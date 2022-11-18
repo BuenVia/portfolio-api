@@ -19,6 +19,20 @@ router.route('/api/projects')
     res.send(`Success:\n${newProject}`)
 })
 
+router.route('/api/projects/:id')
+.get(async (req, res) => {
+    const project = await Project.findOne({ _id: req.params.id })
+    res.send(project)
+})
+.put(async (req, res) => {
+    const updateProject = await Project.updateOne({ _id: req.params.id }, { $set: req.body })
+    res.send(`Successfully updated project`)
+})
+.delete(async (req, res) => {
+    const deleteProject = await Project.deleteOne({ _id: req.params.id })
+    res.send(`Successfully deleted project`)
+})
+
 
 
 module.exports = router
