@@ -12,4 +12,9 @@ router.get('/api/blog', async (req, res) => {
     res.send(blog)
 })
 
+router.get('/api/blog/latest', async (req, res) => {
+    const blog = await Blog.findOne({}, {}, { sort: {createdAt: -1 }})
+    res.send(blog)
+})
+
 module.exports = router

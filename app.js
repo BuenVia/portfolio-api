@@ -11,7 +11,7 @@ const blogRouter = require('./routes/blogRouter')
 
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = 9000;
 }
 
 app.use((req, res, next) => {
@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 app.get('/', blogRouter)
 app.get('/api/blog', blogRouter)
+app.get('/api/blog/latest', blogRouter)
 
 app.listen(port, () => {
     console.log(`App listening on port: ${port}`);
